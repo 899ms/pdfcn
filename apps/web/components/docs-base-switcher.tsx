@@ -5,40 +5,27 @@ import { cn } from "@/lib/utils";
 import { BASE_NAMES, BASES, getBase } from "@/registry/bases";
 import type { BaseName } from "@/registry/bases";
 
-type DocsBaseSwitcherSection = "components" | "blocks" | "theming";
+// Slug depth at which a page carries the switcher: `theming/<base>` is itself a
+// doc, while `components/<base>` and `blocks/<base>` only list that base's items.
+const SWITCHER_SLUG_DEPTH: Record<string, number | undefined> = {
+  blocks: 3,
+  components: 3,
+  theming: 2,
+};
 
-const DOCS_BASE_SWITCHER_SECTIONS = new Set<DocsBaseSwitcherSection>([
-  "components",
-  "blocks",
-  "theming",
-]);
-
-const isDocsBaseSwitcherSection = (
-  section: string
-): section is DocsBaseSwitcherSection =>
-  DOCS_BASE_SWITCHER_SECTIONS.has(section as DocsBaseSwitcherSection);
-
-export const getDocsBaseSwitcherProps = (
-  slug?: string[]
-): {
-  section: DocsBaseSwitcherSection;
-  base: string;
-  slug?: string;
-} | null => {
-  if (!slug || slug.length < 2) {
-    return null;
-  }
-
-  const [section, base, ...rest] = slug;
+export const getDocsBaseSwitcherProps = (slug?: string[]) => {
+  const [section = "", base = "", ...rest] = slug ?? [];
+  const depth = SWITCHER_SLUG_DEPTH[section];
 
   if (
-    !BASE_NAMES.includes(base as BaseName) ||
-    !isDocsBaseSwitcherSection(section)
+    !depth ||
+    rest.length + 2 < depth ||
+    !BASE_NAMES.includes(base as BaseName)
   ) {
     return null;
   }
 
-  return { base, section, slug: rest.length > 0 ? rest.join("/") : undefined };
+  return { base, section, slug: rest.join("/") || undefined };
 };
 
 export const DocsBaseSwitcher = ({
@@ -49,7 +36,7 @@ export const DocsBaseSwitcher = ({
 }: {
   base: string;
   slug?: string;
-  section: DocsBaseSwitcherSection;
+  section: string;
   className?: string;
 }) => {
   const activeBase = getBase(base as (typeof BASES)[number]["name"]);
