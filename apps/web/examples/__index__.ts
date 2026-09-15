@@ -39,6 +39,7 @@ import takumi_badge from "@/examples/takumi/badge";
 import takumi_card from "@/examples/takumi/card";
 import takumi_data_table from "@/examples/takumi/data-table";
 import takumi_divider from "@/examples/takumi/divider";
+import takumi_event_agenda from "@/examples/takumi/event-agenda";
 import takumi_form from "@/examples/takumi/form";
 import takumi_graph from "@/examples/takumi/graph";
 import takumi_heading from "@/examples/takumi/heading";
@@ -115,6 +116,7 @@ export const demos: Record<BaseName, DemoMap> = {
     card: takumi_card,
     "data-table": takumi_data_table,
     divider: takumi_divider,
+    "event-agenda": takumi_event_agenda,
     form: takumi_form,
     graph: takumi_graph,
     heading: takumi_heading,
