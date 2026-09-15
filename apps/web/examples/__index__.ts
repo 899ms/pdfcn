@@ -5,6 +5,7 @@ import forme_badge from "@/examples/forme/badge";
 import forme_card from "@/examples/forme/card";
 import forme_data_table from "@/examples/forme/data-table";
 import forme_divider from "@/examples/forme/divider";
+import forme_event_agenda from "@/examples/forme/event-agenda";
 import forme_form from "@/examples/forme/form";
 import forme_graph from "@/examples/forme/graph";
 import forme_heading from "@/examples/forme/heading";
@@ -80,6 +81,7 @@ export const demos: Record<BaseName, DemoMap> = {
     card: forme_card,
     "data-table": forme_data_table,
     divider: forme_divider,
+    "event-agenda": forme_event_agenda,
     form: forme_form,
     graph: forme_graph,
     heading: forme_heading,
