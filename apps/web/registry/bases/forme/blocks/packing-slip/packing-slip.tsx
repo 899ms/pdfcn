@@ -130,7 +130,6 @@ const PackingSlipContent = ({ data }: { data: PackingSlipProps }) => {
               ) : undefined
             }
             title="PACKING SLIP"
-            titleColor={data.accentColor}
             subtitle={data.companyName}
             rightText={data.orderNumber}
             rightSubText={`Order Date: ${data.orderDate}`}
@@ -249,7 +248,11 @@ const PackingSlipContent = ({ data }: { data: PackingSlipProps }) => {
             </View>
           </Section>
           {(data.thankYouMessage || data.returnsPolicy) && (
-            <Section spacing="sm">
+            <Section
+              spacing="sm"
+              variant="highlight"
+              accentColor={data.accentColor}
+            >
               {data.thankYouMessage && (
                 <Text variant="sm" weight="medium" noMargin>
                   {data.thankYouMessage}
