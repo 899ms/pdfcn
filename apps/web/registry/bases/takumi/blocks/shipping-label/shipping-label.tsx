@@ -138,6 +138,7 @@ const ShippingLabelContent = ({ data }: { data: ShippingLabelData }) => {
     },
     page: {
       backgroundColor: theme.colors.background,
+      boxSizing: "border-box",
       flexDirection: "column",
       height: LABEL_SIZE.height,
       overflow: "hidden",
