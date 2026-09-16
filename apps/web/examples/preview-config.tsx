@@ -5,6 +5,7 @@ import { pointToCssPixel } from "@/registry/bases/takumi/lib/pdf-primitives";
 const DEFAULT_MARGIN = 40;
 
 const BLOCK_NAMES = new Set([
+  "event-ticket",
   "invoice-classic",
   "invoice-consultant",
   "invoice-corporate",
@@ -34,6 +35,10 @@ const COMPONENT_SIZES: Record<
   Extract<RenderOptions, { viewport?: never }>["size"]
 > = {
   badge: { height: pointToCssPixel(200), width: pointToCssPixel(595) },
+  "event-ticket": {
+    height: pointToCssPixel(252),
+    width: pointToCssPixel(504),
+  },
   "page-footer": {
     height: pointToCssPixel(300),
     width: pointToCssPixel(595),

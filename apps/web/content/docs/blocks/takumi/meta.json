@@ -1,6 +1,7 @@
 {
   "pages": [
     "index",
+    "event-ticket",
     "invoice-classic",
     "invoice-consultant",
     "invoice-corporate",
