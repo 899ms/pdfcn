@@ -71,7 +71,7 @@ This project is proudly supported by:
     <tr>
       <td>
         <a href="https://pro.reactbits.dev?utm_source=www.pdfcn.dev&utm_campaign=github_readme&utm_medium=sponsor">
-          <img src="public/sponsors/reactbitpro.svg" alt="React Bits Pro" height="48" />
+          <img src="apps/web/public/sponsors/reactbitpro.svg" alt="React Bits Pro" height="48" />
         </a>
       </td>
     </tr>
