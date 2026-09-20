@@ -49,6 +49,10 @@ Please do not open public issues for security vulnerabilities. Follow [SECURITY.
 
 [MIT](LICENSE)
 
+## Credits
+
+- [pdfx](https://getpdfx.dev/) by [Akash](https://x.com/akashpise588) for the [react-pdf](https://react-pdf.org/) version.
+
 ## Contributors
 
 [![Contributors](https://contrib.rocks/image?repo=shadcn-labs/pdfcn)](https://github.com/shadcn-labs/pdfcn/graphs/contributors)
