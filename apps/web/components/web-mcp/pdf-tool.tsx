@@ -11,6 +11,8 @@ const BLOCK_NAMES = [
   "invoice-creative",
   "invoice-minimal",
   "invoice-modern",
+  "meeting-minutes",
+  "packing-slip",
   "press-release",
   "report-financial",
   "report-marketing",

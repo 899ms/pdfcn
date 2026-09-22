@@ -1,0 +1,127 @@
+---
+title: "Meeting Minutes"
+description: "Printable meeting minutes document with attendees, agenda, discussions, decisions, and action items."
+---
+
+<ComponentPreview base="forme" name="meeting-minutes" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @pdfcn/forme/meeting-minutes
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @formepdf/react @formepdf/core
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/forme/blocks/meeting-minutes/meeting-minutes.tsx"
+  base="forme"
+  title="components/pdf/blocks/meeting-minutes/meeting-minutes.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/forme/components/theme-provider.tsx"
+  base="forme"
+  title="components/pdf/theme-provider.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/forme/lib/resolve-color.ts"
+  base="forme"
+  title="lib/resolve-color.ts"
+/>
+
+<ComponentSource
+  src="registry/themes/professional.ts"
+  base="forme"
+  title="lib/pdf-themes/professional.ts"
+/>
+
+<ComponentSource
+  src="registry/themes/primitives.ts"
+  base="forme"
+  title="lib/pdf-themes/primitives.ts"
+/>
+
+<ComponentSource
+  src="registry/types/pdf-themes.ts"
+  base="forme"
+  title="types/pdf-themes.ts"
+/>
+
+<ComponentSource
+  src="registry/types/pdf-components.ts"
+  base="forme"
+  title="types/pdf-components.ts"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { MeetingMinutesDocument } from "@/components/pdf/meeting-minutes";
+```
+
+```tsx
+<MeetingMinutesDocument
+  meetingTitle="Q3 Product Roadmap Review"
+  date="September 12, 2026"
+  time="2:00 PM - 3:30 PM"
+  location="Conference Room B / Zoom"
+  organizer="Alex Kim"
+  attendees={[{ name: "Alex Kim", role: "Product Lead" }]}
+  agenda={["Review Q2 outcomes", "Q3 feature priorities"]}
+  discussions={[
+    {
+      topic: "Q2 Outcomes",
+      notes: ["Shipped 4 of 5 planned features"],
+      speaker: "Alex Kim",
+    },
+  ]}
+  decisions={[
+    {
+      number: 1,
+      decision: "Proceed with pdfme as second rendering base",
+      rationale: "Better JSX support",
+    },
+  ]}
+  actionItems={[
+    {
+      task: "Create pdfme integration RFC",
+      owner: "Jordan Lee",
+      dueDate: "Sep 19, 2026",
+      status: "In Progress",
+    },
+  ]}
+  preparedBy="Alex Kim"
+  accentColor="#0891b2"
+/>
+```
