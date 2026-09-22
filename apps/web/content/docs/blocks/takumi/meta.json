@@ -14,7 +14,8 @@
     "report-financial",
     "report-marketing",
     "report-operations",
-    "report-security"
+    "report-security",
+    "shipping-label"
   ],
   "title": "Takumi"
 }

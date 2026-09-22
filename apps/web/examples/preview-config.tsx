@@ -18,6 +18,7 @@ const BLOCK_NAMES = new Set([
   "report-marketing",
   "report-operations",
   "report-security",
+  "shipping-label",
 ]);
 
 const COMPONENT_MARGINS: Record<string, number> = {
@@ -44,6 +45,10 @@ const COMPONENT_SIZES: Record<
   "page-header": {
     height: pointToCssPixel(240),
     width: pointToCssPixel(595),
+  },
+  "shipping-label": {
+    height: pointToCssPixel(432),
+    width: pointToCssPixel(288),
   },
 };
 

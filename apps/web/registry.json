@@ -870,6 +870,31 @@
       "type": "registry:block"
     },
     {
+      "dependencies": ["takumi-pdf", "@takumi-rs/helpers", "qrcode"],
+      "description": "Shipping Label PDF block (takumi)",
+      "files": [
+        {
+          "path": "registry/bases/takumi/blocks/shipping-label/shipping-label.tsx",
+          "type": "registry:block",
+          "target": "components/pdf/blocks/shipping-label/shipping-label.tsx"
+        },
+        {
+          "path": "registry/bases/takumi/blocks/shipping-label/shipping-label.types.ts",
+          "type": "registry:block",
+          "target": "components/pdf/blocks/shipping-label/shipping-label.types.ts"
+        }
+      ],
+      "name": "takumi/shipping-label",
+      "registryDependencies": [
+        "@pdfcn/takumi/utils",
+        "@pdfcn/takumi/pdf-image",
+        "@pdfcn/takumi/qrcode",
+        "@pdfcn/takumi/text"
+      ],
+      "title": "Shipping Label",
+      "type": "registry:block"
+    },
+    {
       "description": "professional theme tokens",
       "files": [
         {
