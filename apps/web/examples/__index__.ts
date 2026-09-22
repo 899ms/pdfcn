@@ -19,6 +19,7 @@ import forme_keep_together from "@/examples/forme/keep-together";
 import forme_key_value from "@/examples/forme/key-value";
 import forme_link from "@/examples/forme/link";
 import forme_list from "@/examples/forme/list";
+import forme_meeting_minutes from "@/examples/forme/meeting-minutes";
 import forme_packing_slip from "@/examples/forme/packing-slip";
 import forme_page_break from "@/examples/forme/page-break";
 import forme_page_footer from "@/examples/forme/page-footer";
@@ -57,6 +58,7 @@ import takumi_key_value from "@/examples/takumi/key-value";
 import takumi_link from "@/examples/takumi/link";
 import takumi_list from "@/examples/takumi/list";
 import takumi_medical_intake_form from "@/examples/takumi/medical-intake-form";
+import takumi_meeting_minutes from "@/examples/takumi/meeting-minutes";
 import takumi_packing_slip from "@/examples/takumi/packing-slip";
 import takumi_page_break from "@/examples/takumi/page-break";
 import takumi_page_footer from "@/examples/takumi/page-footer";
@@ -100,6 +102,7 @@ export const demos: Record<BaseName, DemoMap> = {
     "key-value": forme_key_value,
     link: forme_link,
     list: forme_list,
+    "meeting-minutes": forme_meeting_minutes,
     "packing-slip": forme_packing_slip,
     "page-break": forme_page_break,
     "page-footer": forme_page_footer,
@@ -140,6 +143,7 @@ export const demos: Record<BaseName, DemoMap> = {
     link: takumi_link,
     list: takumi_list,
     "medical-intake-form": takumi_medical_intake_form,
+    "meeting-minutes": takumi_meeting_minutes,
     "packing-slip": takumi_packing_slip,
     "page-break": takumi_page_break,
     "page-footer": takumi_page_footer,
