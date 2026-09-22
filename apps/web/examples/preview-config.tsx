@@ -5,6 +5,7 @@ import { pointToCssPixel } from "@/registry/bases/takumi/lib/pdf-primitives";
 const DEFAULT_MARGIN = 40;
 
 const BLOCK_NAMES = new Set([
+  "event-agenda",
   "event-ticket",
   "invoice-classic",
   "invoice-consultant",
@@ -12,10 +13,15 @@ const BLOCK_NAMES = new Set([
   "invoice-creative",
   "invoice-minimal",
   "invoice-modern",
+  "medical-intake-form",
+  "meeting-minutes",
+  "packing-slip",
+  "press-release",
   "report-financial",
   "report-marketing",
   "report-operations",
   "report-security",
+  "shipping-label",
 ]);
 
 const COMPONENT_MARGINS: Record<string, number> = {
@@ -46,6 +52,10 @@ const COMPONENT_SIZES: Record<
   "page-header": {
     height: pointToCssPixel(240),
     width: pointToCssPixel(595),
+  },
+  "shipping-label": {
+    height: pointToCssPixel(432),
+    width: pointToCssPixel(288),
   },
 };
 

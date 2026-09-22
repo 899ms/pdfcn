@@ -1,12 +1,16 @@
 {
   "pages": [
     "index",
+    "event-agenda",
     "invoice-classic",
     "invoice-consultant",
     "invoice-corporate",
     "invoice-creative",
     "invoice-minimal",
     "invoice-modern",
+    "meeting-minutes",
+    "packing-slip",
+    "press-release",
     "report-financial",
     "report-marketing",
     "report-operations",

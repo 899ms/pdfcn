@@ -1,6 +1,8 @@
 {
   "pages": [
     "index",
+    "gift-certificate",
+    "event-agenda",
     "event-ticket",
     "invoice-classic",
     "invoice-consultant",
@@ -8,10 +10,15 @@
     "invoice-creative",
     "invoice-minimal",
     "invoice-modern",
+    "medical-intake-form",
+    "meeting-minutes",
+    "packing-slip",
+    "press-release",
     "report-financial",
     "report-marketing",
     "report-operations",
-    "report-security"
+    "report-security",
+    "shipping-label"
   ],
   "title": "Takumi"
 }
