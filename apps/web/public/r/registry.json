@@ -2233,6 +2233,37 @@
       ],
       "title": "Report Security",
       "type": "registry:block"
+    },
+    {
+      "dependencies": ["@formepdf/react", "@formepdf/core"],
+      "description": "Work Order PDF block (forme)",
+      "files": [
+        {
+          "path": "registry/bases/forme/blocks/work-order/work-order.tsx",
+          "type": "registry:block",
+          "target": "components/pdf/blocks/work-order/work-order.tsx"
+        },
+        {
+          "path": "registry/bases/forme/blocks/work-order/work-order.types.ts",
+          "type": "registry:block",
+          "target": "components/pdf/blocks/work-order/work-order.types.ts"
+        }
+      ],
+      "name": "forme/work-order",
+      "registryDependencies": [
+        "@pdfcn/forme/utils",
+        "@pdfcn/forme/badge",
+        "@pdfcn/forme/key-value",
+        "@pdfcn/forme/page-footer",
+        "@pdfcn/forme/page-header",
+        "@pdfcn/forme/pdf-image",
+        "@pdfcn/forme/section",
+        "@pdfcn/forme/signature",
+        "@pdfcn/forme/table",
+        "@pdfcn/forme/text"
+      ],
+      "title": "Work Order",
+      "type": "registry:block"
     }
   ],
   "name": "pdfcn"

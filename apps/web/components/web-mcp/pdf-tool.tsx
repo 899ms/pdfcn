@@ -22,6 +22,7 @@ const BLOCK_NAMES = [
   "report-operations",
   "report-security",
   "shipping-label",
+  "work-order",
 ];
 
 export const GeneratePdfTool = () => {
