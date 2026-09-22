@@ -1,0 +1,184 @@
+---
+title: "Lesson Plan"
+description: "Printable lesson plan for teachers with objectives, standards, materials, activities, and assessment."
+---
+
+<ComponentPreview base="takumi" name="lesson-plan" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @pdfcn/takumi/lesson-plan
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install takumi-pdf @takumi-rs/helpers
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/takumi/blocks/lesson-plan/lesson-plan.tsx"
+  base="takumi"
+  title="components/pdf/blocks/lesson-plan/lesson-plan.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/takumi/blocks/lesson-plan/lesson-plan.types.ts"
+  base="takumi"
+  title="components/pdf/blocks/lesson-plan/lesson-plan.types.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/takumi/components/theme-provider.tsx"
+  base="takumi"
+  title="components/pdf/theme-provider.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/takumi/lib/resolve-color.ts"
+  base="takumi"
+  title="lib/resolve-color.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/takumi/lib/pdf-primitives.tsx"
+  base="takumi"
+  title="lib/pdf-primitives.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/takumi/lib/pdf-svg.tsx"
+  base="takumi"
+  title="lib/pdf-svg.tsx"
+/>
+
+<ComponentSource
+  src="registry/themes/professional.ts"
+  base="takumi"
+  title="lib/pdf-themes/professional.ts"
+/>
+
+<ComponentSource
+  src="registry/themes/primitives.ts"
+  base="takumi"
+  title="lib/pdf-themes/primitives.ts"
+/>
+
+<ComponentSource
+  src="registry/types/pdf-themes.ts"
+  base="takumi"
+  title="types/pdf-themes.ts"
+/>
+
+<ComponentSource
+  src="registry/types/pdf-components.ts"
+  base="takumi"
+  title="types/pdf-components.ts"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { LessonPlanDocument } from "@/components/pdf/lesson-plan";
+```
+
+```tsx
+<LessonPlanDocument
+  data={{
+    subject: "Mathematics",
+    gradeLevel: "8th Grade",
+    lessonTitle: "Introduction to Linear Equations",
+    date: "September 15, 2026",
+    teacherName: "Ms. Johnson",
+    duration: "50 minutes",
+    topic: "Linear Equations",
+    essentialQuestion:
+      "How can we represent real-world relationships using linear equations?",
+    objectives: [
+      "Define linear equations",
+      "Graph linear equations on a coordinate plane",
+      "Solve simple linear equations",
+    ],
+    standards: ["CCSS.MATH.8.EE.B.6", "CCSS.MATH.8.EE.C.7"],
+    materials: ["Graph paper", "Rulers", "Calculator", "Whiteboard markers"],
+    sequence: [
+      {
+        time: "5 min",
+        activity: "Warm-up",
+        description: "Review solving one-step equations",
+        notes: "5 problems on the board",
+      },
+      {
+        time: "10 min",
+        activity: "Introduction",
+        description: "Define linear equations, show examples",
+        notes: "Use real-world context",
+      },
+      {
+        time: "15 min",
+        activity: "Guided Practice",
+        description: "Work through 3 examples together",
+        notes: "Check for understanding",
+      },
+      {
+        time: "15 min",
+        activity: "Independent Practice",
+        description: "Complete worksheet problems 1-10",
+        notes: "Circulate and support",
+      },
+      {
+        time: "5 min",
+        activity: "Closure",
+        description: "Exit ticket: solve one linear equation",
+        notes: "Collect before dismissal",
+      },
+    ],
+    differentiation: [
+      "Provide equation mats for visual learners",
+      "Allow calculator use for students with processing difficulties",
+      "Offer extension problems for advanced learners",
+    ],
+    assessment: {
+      formative: ["Exit ticket", "Observation", "Guided practice responses"],
+      summative: ["Chapter quiz", "Unit assessment"],
+    },
+    homework: "Complete worksheet problems 11-20",
+    reflection:
+      "Note student misconceptions during independent practice and adjust the warm-up for the next lesson.",
+    accentColor: "#7c3aed",
+  }}
+/>
+```
+
+## Props
+
+| Prop    | Type             | Description             |
+| ------- | ---------------- | ----------------------- |
+| `data`  | `LessonPlanData` | Lesson plan content     |
+| `theme` | `PdfcnTheme`     | Optional theme override |
