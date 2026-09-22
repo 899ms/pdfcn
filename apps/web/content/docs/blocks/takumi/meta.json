@@ -1,12 +1,16 @@
 {
   "pages": [
-    "!index",
+    "index",
+    "gift-certificate",
+    "event-agenda",
     "invoice-classic",
     "invoice-consultant",
     "invoice-corporate",
     "invoice-creative",
     "invoice-minimal",
     "invoice-modern",
+    "medical-intake-form",
+    "packing-slip",
     "report-financial",
     "report-marketing",
     "report-operations",

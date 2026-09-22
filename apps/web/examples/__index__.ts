@@ -5,6 +5,7 @@ import forme_badge from "@/examples/forme/badge";
 import forme_card from "@/examples/forme/card";
 import forme_data_table from "@/examples/forme/data-table";
 import forme_divider from "@/examples/forme/divider";
+import forme_event_agenda from "@/examples/forme/event-agenda";
 import forme_form from "@/examples/forme/form";
 import forme_graph from "@/examples/forme/graph";
 import forme_heading from "@/examples/forme/heading";
@@ -18,6 +19,7 @@ import forme_keep_together from "@/examples/forme/keep-together";
 import forme_key_value from "@/examples/forme/key-value";
 import forme_link from "@/examples/forme/link";
 import forme_list from "@/examples/forme/list";
+import forme_packing_slip from "@/examples/forme/packing-slip";
 import forme_page_break from "@/examples/forme/page-break";
 import forme_page_footer from "@/examples/forme/page-footer";
 import forme_page_header from "@/examples/forme/page-header";
@@ -39,7 +41,9 @@ import takumi_badge from "@/examples/takumi/badge";
 import takumi_card from "@/examples/takumi/card";
 import takumi_data_table from "@/examples/takumi/data-table";
 import takumi_divider from "@/examples/takumi/divider";
+import takumi_event_agenda from "@/examples/takumi/event-agenda";
 import takumi_form from "@/examples/takumi/form";
+import takumi_gift_certificate from "@/examples/takumi/gift-certificate";
 import takumi_graph from "@/examples/takumi/graph";
 import takumi_heading from "@/examples/takumi/heading";
 import takumi_invoice_classic from "@/examples/takumi/invoice-classic";
@@ -52,6 +56,8 @@ import takumi_keep_together from "@/examples/takumi/keep-together";
 import takumi_key_value from "@/examples/takumi/key-value";
 import takumi_link from "@/examples/takumi/link";
 import takumi_list from "@/examples/takumi/list";
+import takumi_medical_intake_form from "@/examples/takumi/medical-intake-form";
+import takumi_packing_slip from "@/examples/takumi/packing-slip";
 import takumi_page_break from "@/examples/takumi/page-break";
 import takumi_page_footer from "@/examples/takumi/page-footer";
 import takumi_page_header from "@/examples/takumi/page-header";
@@ -80,6 +86,7 @@ export const demos: Record<BaseName, DemoMap> = {
     card: forme_card,
     "data-table": forme_data_table,
     divider: forme_divider,
+    "event-agenda": forme_event_agenda,
     form: forme_form,
     graph: forme_graph,
     heading: forme_heading,
@@ -93,6 +100,7 @@ export const demos: Record<BaseName, DemoMap> = {
     "key-value": forme_key_value,
     link: forme_link,
     list: forme_list,
+    "packing-slip": forme_packing_slip,
     "page-break": forme_page_break,
     "page-footer": forme_page_footer,
     "page-header": forme_page_header,
@@ -116,7 +124,9 @@ export const demos: Record<BaseName, DemoMap> = {
     card: takumi_card,
     "data-table": takumi_data_table,
     divider: takumi_divider,
+    "event-agenda": takumi_event_agenda,
     form: takumi_form,
+    "gift-certificate": takumi_gift_certificate,
     graph: takumi_graph,
     heading: takumi_heading,
     "invoice-classic": takumi_invoice_classic,
@@ -129,6 +139,8 @@ export const demos: Record<BaseName, DemoMap> = {
     "key-value": takumi_key_value,
     link: takumi_link,
     list: takumi_list,
+    "medical-intake-form": takumi_medical_intake_form,
+    "packing-slip": takumi_packing_slip,
     "page-break": takumi_page_break,
     "page-footer": takumi_page_footer,
     "page-header": takumi_page_header,

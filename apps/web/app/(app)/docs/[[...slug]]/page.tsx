@@ -119,7 +119,7 @@ const Page = async (props: { params: Promise<{ slug?: string[] }> }) => {
                     <div className="docs-nav flex items-center gap-2">
                       <div className="hidden sm:block">
                         <DocsCopyPage
-                          markdownUrl={absoluteUrl(markdownUrl)}
+                          markdownUrl={markdownUrl}
                           url={absoluteUrl(page.url)}
                         />
                       </div>
@@ -183,7 +183,7 @@ const Page = async (props: { params: Promise<{ slug?: string[] }> }) => {
                 ) : null}
               </div>
               <DocsAds slot="content" />
-              <div className="w-full flex-1 *:data-[slot=alert]:first:mt-0">
+              <div className="w-full flex-1 *:data-[slot=alert]:first:mt-0 *:data-[slot=pdf-preview]:first:mt-0">
                 {baseSwitcher && (
                   <DocsBaseSwitcher {...baseSwitcher} className="mb-4" />
                 )}

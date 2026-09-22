@@ -5,12 +5,15 @@ import { pointToCssPixel } from "@/registry/bases/takumi/lib/pdf-primitives";
 const DEFAULT_MARGIN = 40;
 
 const BLOCK_NAMES = new Set([
+  "event-agenda",
   "invoice-classic",
   "invoice-consultant",
   "invoice-corporate",
   "invoice-creative",
   "invoice-minimal",
   "invoice-modern",
+  "medical-intake-form",
+  "packing-slip",
   "report-financial",
   "report-marketing",
   "report-operations",

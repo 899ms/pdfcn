@@ -218,6 +218,7 @@ export const PdfPreview = ({
   return (
     <div
       ref={containerRef}
+      data-slot="pdf-preview"
       className={cn("overflow-hidden rounded-lg border bg-muted/30", className)}
       style={{ minHeight: height }}
     >
