@@ -447,6 +447,31 @@
       "type": "registry:ui"
     },
     {
+      "dependencies": ["takumi-pdf", "@takumi-rs/helpers", "qrcode"],
+      "description": "Event Ticket PDF block (takumi)",
+      "files": [
+        {
+          "path": "registry/bases/takumi/blocks/event-ticket/event-ticket.tsx",
+          "type": "registry:block",
+          "target": "components/pdf/blocks/event-ticket/event-ticket.tsx"
+        },
+        {
+          "path": "registry/bases/takumi/blocks/event-ticket/event-ticket.types.ts",
+          "type": "registry:block",
+          "target": "components/pdf/blocks/event-ticket/event-ticket.types.ts"
+        }
+      ],
+      "name": "takumi/event-ticket",
+      "registryDependencies": [
+        "@pdfcn/takumi/pdf-image",
+        "@pdfcn/takumi/qrcode",
+        "@pdfcn/takumi/text",
+        "@pdfcn/takumi/utils"
+      ],
+      "title": "Event Ticket",
+      "type": "registry:block"
+    },
+    {
       "dependencies": ["takumi-pdf", "@takumi-rs/helpers"],
       "description": "Event Agenda PDF block (takumi)",
       "files": [
