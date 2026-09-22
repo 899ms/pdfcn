@@ -53,9 +53,9 @@ export type PageFooterVariant =
  * @see {@link PageFooterProps}
  */
 export interface PageFooterProps extends Omit<PDFComponentProps, "children"> {
-  leftText?: string;
-  rightText?: string;
-  centerText?: string;
+  leftText?: React.ReactNode;
+  rightText?: React.ReactNode;
+  centerText?: React.ReactNode;
   /**
    * @default 'simple'
    */
@@ -270,18 +270,32 @@ const applyTextColor = (
   return [...styles, { color }];
 };
 
+/**
+ * A footer slot's content. A plain string is wrapped in a PDF text node, as
+ * before; anything else is rendered as given, because `@formepdf/react`'s
+ * `Text` accepts string children only — a `<PageNumber />` (which is a View
+ * wrapping a Text) cannot nest inside one. Widening these slots to a node is
+ * what lets a block pass the real page-number component instead of a literal.
+ */
+const footerSlot = (value: React.ReactNode, style: Style[]) =>
+  typeof value === "string" ? (
+    <PDFText style={style as never}>{value}</PDFText>
+  ) : (
+    value
+  );
+
 const renderBranded = (
   styles: Styles,
   containerStyles: Style[],
   leftStyle: Style[],
   rightStyle: Style[],
-  leftText: string | undefined,
-  rightText: string | undefined,
+  leftText: React.ReactNode,
+  rightText: React.ReactNode,
   noWrap: boolean
 ) => (
   <View wrap={!noWrap} style={containerStyles as never}>
-    {leftText && <PDFText style={leftStyle as never}>{leftText}</PDFText>}
-    {rightText && <PDFText style={rightStyle as never}>{rightText}</PDFText>}
+    {leftText && footerSlot(leftText, leftStyle)}
+    {rightText && footerSlot(rightText, rightStyle)}
   </View>
 );
 
@@ -289,13 +303,13 @@ const renderCentered = (
   styles: Styles,
   containerStyles: Style[],
   textStyle: Style[],
-  leftText: string | undefined,
-  rightText: string | undefined,
+  leftText: React.ReactNode,
+  rightText: React.ReactNode,
   noWrap: boolean
 ) => (
   <View wrap={!noWrap} style={containerStyles as never}>
-    {leftText && <PDFText style={textStyle as never}>{leftText}</PDFText>}
-    {rightText && <PDFText style={textStyle as never}>{rightText}</PDFText>}
+    {leftText && footerSlot(leftText, textStyle)}
+    {rightText && footerSlot(rightText, textStyle)}
   </View>
 );
 
@@ -305,8 +319,8 @@ const renderThreeColumn = (
   leftStyle: Style[],
   centerStyle: Style[],
   rightStyle: Style[],
-  leftText: string | undefined,
-  rightText: string | undefined,
+  leftText: React.ReactNode,
+  rightText: React.ReactNode,
   address: string | undefined,
   phone: string | undefined,
   email: string | undefined,
@@ -315,7 +329,7 @@ const renderThreeColumn = (
 ) => (
   <View wrap={!noWrap} style={containerStyles as never}>
     <View style={styles.threeColumnLeft}>
-      {leftText && <PDFText style={leftStyle as never}>{leftText}</PDFText>}
+      {leftText && footerSlot(leftText, leftStyle)}
       {address && <PDFText style={styles.textLeft}>{address}</PDFText>}
     </View>
     <View style={styles.threeColumnCenter}>
@@ -324,7 +338,7 @@ const renderThreeColumn = (
       {website && <PDFText style={centerStyle as never}>{website}</PDFText>}
     </View>
     <View style={styles.threeColumnRight}>
-      {rightText && <PDFText style={rightStyle as never}>{rightText}</PDFText>}
+      {rightText && footerSlot(rightText, rightStyle)}
     </View>
   </View>
 );
@@ -336,8 +350,8 @@ const renderDetailed = (
   addrStyle: Style[],
   contactStyle: Style[],
   pageNumStyle: Style[],
-  leftText: string | undefined,
-  rightText: string | undefined,
+  leftText: React.ReactNode,
+  rightText: React.ReactNode,
   address: string | undefined,
   phone: string | undefined,
   email: string | undefined,
@@ -347,9 +361,7 @@ const renderDetailed = (
   <View wrap={!noWrap} style={containerStyles as never}>
     <View style={styles.detailedTopRow}>
       <View style={styles.detailedLeft}>
-        {leftText && (
-          <PDFText style={companyStyle as never}>{leftText}</PDFText>
-        )}
+        {leftText && footerSlot(leftText, companyStyle)}
         {address && <PDFText style={addrStyle as never}>{address}</PDFText>}
       </View>
       <View style={styles.detailedRight}>
@@ -364,7 +376,7 @@ const renderDetailed = (
         )}
       </View>
     </View>
-    {rightText && <PDFText style={pageNumStyle as never}>{rightText}</PDFText>}
+    {rightText && footerSlot(rightText, pageNumStyle)}
   </View>
 );
 
@@ -373,13 +385,13 @@ const renderMinimal = (
   containerStyles: Style[],
   leftStyle: Style[],
   rightStyle: Style[],
-  leftText: string | undefined,
-  rightText: string | undefined,
+  leftText: React.ReactNode,
+  rightText: React.ReactNode,
   noWrap: boolean
 ) => (
   <View wrap={!noWrap} style={containerStyles as never}>
-    {leftText && <PDFText style={leftStyle as never}>{leftText}</PDFText>}
-    {rightText && <PDFText style={rightStyle as never}>{rightText}</PDFText>}
+    {leftText && footerSlot(leftText, leftStyle)}
+    {rightText && footerSlot(rightText, rightStyle)}
   </View>
 );
 
@@ -389,15 +401,15 @@ const renderSimple = (
   leftStyle: Style[],
   centerStyle: Style[],
   rightStyle: Style[],
-  leftText: string | undefined,
-  centerText: string | undefined,
-  rightText: string | undefined,
+  leftText: React.ReactNode,
+  centerText: React.ReactNode,
+  rightText: React.ReactNode,
   noWrap: boolean
 ) => (
   <View wrap={!noWrap} style={containerStyles as never}>
-    {leftText && <PDFText style={leftStyle as never}>{leftText}</PDFText>}
-    {centerText && <PDFText style={centerStyle as never}>{centerText}</PDFText>}
-    {rightText && <PDFText style={rightStyle as never}>{rightText}</PDFText>}
+    {leftText && footerSlot(leftText, leftStyle)}
+    {centerText && footerSlot(centerText, centerStyle)}
+    {rightText && footerSlot(rightText, rightStyle)}
   </View>
 );
 

@@ -1,6 +1,7 @@
 {
   "pages": [
     "index",
+    "event-agenda",
     "invoice-classic",
     "invoice-consultant",
     "invoice-corporate",
@@ -8,6 +9,7 @@
     "invoice-minimal",
     "invoice-modern",
     "meeting-minutes",
+    "packing-slip",
     "report-financial",
     "report-marketing",
     "report-operations",
