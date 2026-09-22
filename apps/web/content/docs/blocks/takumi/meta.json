@@ -2,6 +2,7 @@
   "pages": [
     "index",
     "gift-certificate",
+    "event-agenda",
     "invoice-classic",
     "invoice-consultant",
     "invoice-corporate",
