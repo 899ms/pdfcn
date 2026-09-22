@@ -976,6 +976,37 @@
       "type": "registry:block"
     },
     {
+      "dependencies": ["takumi-pdf", "@takumi-rs/helpers"],
+      "description": "Work Order PDF block (takumi)",
+      "files": [
+        {
+          "path": "registry/bases/takumi/blocks/work-order/work-order.tsx",
+          "type": "registry:block",
+          "target": "components/pdf/blocks/work-order/work-order.tsx"
+        },
+        {
+          "path": "registry/bases/takumi/blocks/work-order/work-order.types.ts",
+          "type": "registry:block",
+          "target": "components/pdf/blocks/work-order/work-order.types.ts"
+        }
+      ],
+      "name": "takumi/work-order",
+      "registryDependencies": [
+        "@pdfcn/takumi/utils",
+        "@pdfcn/takumi/badge",
+        "@pdfcn/takumi/key-value",
+        "@pdfcn/takumi/page-footer",
+        "@pdfcn/takumi/page-header",
+        "@pdfcn/takumi/pdf-image",
+        "@pdfcn/takumi/section",
+        "@pdfcn/takumi/signature",
+        "@pdfcn/takumi/table",
+        "@pdfcn/takumi/text"
+      ],
+      "title": "Work Order",
+      "type": "registry:block"
+    },
+    {
       "description": "professional theme tokens",
       "files": [
         {

@@ -22,6 +22,7 @@ const BLOCK_NAMES = new Set([
   "report-operations",
   "report-security",
   "shipping-label",
+  "work-order",
 ]);
 
 const COMPONENT_MARGINS: Record<string, number> = {

@@ -80,6 +80,7 @@ import takumi_stack from "@/examples/takumi/stack";
 import takumi_table from "@/examples/takumi/table";
 import takumi_text from "@/examples/takumi/text";
 import takumi_watermark from "@/examples/takumi/watermark";
+import takumi_work_order from "@/examples/takumi/work-order";
 import type { BaseName } from "@/registry/bases";
 
 type DemoMap = Record<string, ComponentType>;
@@ -168,6 +169,7 @@ export const demos: Record<BaseName, DemoMap> = {
     table: takumi_table,
     text: takumi_text,
     watermark: takumi_watermark,
+    "work-order": takumi_work_order,
   },
 };
 
