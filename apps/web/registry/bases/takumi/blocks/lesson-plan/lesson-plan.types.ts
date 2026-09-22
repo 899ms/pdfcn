@@ -10,14 +10,14 @@ export interface LessonPlanAssessment {
   summative?: string[];
 }
 
-export interface LessonPlanData {
+export interface LessonPlanProps {
   subject: string;
   gradeLevel: string;
   lessonTitle: string;
   date: string;
   teacherName: string;
   duration: string;
-  topic: string;
+  topic?: string;
   essentialQuestion?: string;
   objectives: string[];
   standards?: string[];

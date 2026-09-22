@@ -1024,7 +1024,6 @@
       "name": "takumi/lesson-plan",
       "registryDependencies": [
         "@pdfcn/takumi/utils",
-        "@pdfcn/takumi/list",
         "@pdfcn/takumi/page-footer",
         "@pdfcn/takumi/page-header",
         "@pdfcn/takumi/section",
@@ -2311,7 +2310,6 @@
       "name": "forme/lesson-plan",
       "registryDependencies": [
         "@pdfcn/forme/utils",
-        "@pdfcn/forme/list",
         "@pdfcn/forme/page-footer",
         "@pdfcn/forme/page-header",
         "@pdfcn/forme/section",

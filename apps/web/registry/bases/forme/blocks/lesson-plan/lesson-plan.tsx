@@ -1,6 +1,5 @@
 import { Document, Page, StyleSheet, View } from "@formepdf/react";
 
-import { PdfList } from "@/registry/bases/forme/components/list/list";
 import { PageFooter } from "@/registry/bases/forme/components/page-footer/page-footer";
 import { PageHeader } from "@/registry/bases/forme/components/page-header/page-header";
 import { Section } from "@/registry/bases/forme/components/section/section";
@@ -18,14 +17,14 @@ import {
 } from "@/registry/bases/forme/components/theme-provider";
 import type { PdfcnTheme } from "@/registry/types/pdf-themes";
 
-import type { LessonPlanData } from "./lesson-plan.types";
+import type { LessonPlanProps } from "./lesson-plan.types";
 
 // Sample data — replace with your own props or data source
-const sampleData: LessonPlanData = {
+const sampleData: LessonPlanProps = {
   accentColor: "#7c3aed",
   assessment: {
-    formative: ["Exit ticket", "Observation", "Guided practice responses"],
-    summative: ["Chapter quiz", "Unit assessment"],
+    formative: ["Exit ticket", "Observation during guided practice"],
+    summative: ["Chapter quiz"],
   },
   date: "September 15, 2026",
   differentiation: [
@@ -45,8 +44,6 @@ const sampleData: LessonPlanData = {
     "Graph linear equations on a coordinate plane",
     "Solve simple linear equations",
   ],
-  reflection:
-    "Note student misconceptions during independent practice and adjust the warm-up for the next lesson.",
   sequence: [
     {
       activity: "Warm-up",
@@ -85,309 +82,267 @@ const sampleData: LessonPlanData = {
   topic: "Linear Equations",
 };
 
-const LessonPlanContent = ({ data }: { data: LessonPlanData }) => {
+const REFLECTION_LINE_KEYS = Array.from(
+  { length: 8 },
+  (_, line) => `reflection-line-${line}`
+);
+
+const COLUMN_WIDTHS = { activity: 104, notes: 140, time: 56 };
+
+const LessonPlanContent = ({ data }: { data: LessonPlanProps }) => {
   const theme = usePdfcnTheme();
+  const rule = {
+    borderBottomColor: theme.colors.border,
+    borderBottomStyle: "solid" as const,
+    borderBottomWidth: 1,
+  };
 
   const styles = StyleSheet.create({
-    col: {
+    block: {
+      marginBottom: 16,
+    },
+    colHalf: {
+      flex: 2,
+      paddingRight: 20,
+    },
+    colQuarter: {
       flex: 1,
       paddingRight: 10,
+    },
+    infoRow: {
+      ...rule,
+      flexDirection: "row",
+      marginBottom: 16,
+      paddingBottom: 12,
+    },
+    intro: {
+      marginBottom: 3,
     },
     label: {
       fontSize: 9,
       fontWeight: "bold",
-      marginBottom: 2,
+      marginBottom: 4,
+    },
+    listMarker: {
+      width: 12,
+    },
+    listRow: {
+      flexDirection: "row",
+      marginBottom: 3,
+    },
+    listText: {
+      flex: 1,
     },
     page: {
       backgroundColor: theme.colors.background,
     },
+    reflectionLine: {
+      ...rule,
+      height: 24,
+    },
     row: {
       flexDirection: "row",
     },
-    section: {
-      marginBottom: theme.spacing.componentGap,
-    },
   });
 
+  const pageMargin = {
+    bottom: theme.spacing.page.marginBottom,
+    left: theme.spacing.page.marginLeft,
+    right: theme.spacing.page.marginRight,
+    top: theme.spacing.page.marginTop,
+  };
+
+  const renderLabel = (label: string) => (
+    <Text
+      style={styles.label}
+      color="mutedForeground"
+      transform="uppercase"
+      noMargin
+    >
+      {label}
+    </Text>
+  );
+
+  const renderList = (items: string[] = [], numbered = false) =>
+    items.length > 0 ? (
+      items.map((item, index) => (
+        <View key={item} style={styles.listRow}>
+          <View style={styles.listMarker}>
+            <Text variant="xs" color="mutedForeground" noMargin>
+              {numbered ? `${index + 1}.` : "•"}
+            </Text>
+          </View>
+          <View style={styles.listText}>
+            <Text variant="xs" noMargin>
+              {item}
+            </Text>
+          </View>
+        </View>
+      ))
+    ) : (
+      <Text variant="xs" color="mutedForeground" noMargin>
+        —
+      </Text>
+    );
+
+  const info = [
+    { label: "Subject", value: data.subject },
+    { label: "Grade Level", value: data.gradeLevel },
+    { label: "Teacher", value: data.teacherName },
+    { label: "Duration", value: data.duration },
+  ];
+
+  const footerText = `${data.subject} · ${data.gradeLevel} · ${data.lessonTitle}`;
+
   return (
-    <Document title={`${data.lessonTitle} — Lesson Plan`}>
-      <Page
-        margin={{
-          bottom: theme.spacing.page.marginBottom,
-          left: theme.spacing.page.marginLeft,
-          right: theme.spacing.page.marginRight,
-          top: theme.spacing.page.marginTop,
-        }}
-        size="A4"
-      >
+    <Document title={`Lesson Plan — ${data.lessonTitle}`}>
+      <Page margin={pageMargin} size="A4">
         <PageFooter
-          leftText={`${data.subject} — ${data.lessonTitle}`}
+          leftText={footerText}
           rightText="Page 1 of 2"
           sticky
           pagePadding={25}
         />
         <View style={styles.page as never}>
           <PageHeader
+            variant="simple"
             title={data.lessonTitle}
-            subtitle={`${data.subject} \u2022 ${data.gradeLevel}`}
-            rightText={`Teacher: ${data.teacherName}`}
-            rightSubText={`Date: ${data.date}`}
-            style={styles.section}
+            subtitle={
+              data.topic ? `Lesson Plan · ${data.topic}` : "Lesson Plan"
+            }
+            rightText={data.date}
+            marginBottom={16}
           />
 
-          <Section
-            noWrap
-            spacing="none"
-            style={{ ...styles.row, ...styles.section }}
-          >
-            <View style={styles.col}>
-              <Text
-                style={styles.label}
-                color="mutedForeground"
-                transform="uppercase"
-                noMargin
-              >
-                Duration
-              </Text>
-              <Text noMargin variant="xs">
-                {data.duration}
-              </Text>
-            </View>
-            <View style={styles.col}>
-              <Text
-                style={styles.label}
-                color="mutedForeground"
-                transform="uppercase"
-                noMargin
-              >
-                Topic
-              </Text>
-              <Text noMargin variant="xs">
-                {data.topic}
-              </Text>
-            </View>
-            {data.essentialQuestion ? (
-              <View style={{ flex: 2 }}>
-                <Section
-                  variant="highlight"
-                  accentColor={data.accentColor}
-                  spacing="sm"
-                  style={{ margin: 0 }}
-                >
-                  <Text
-                    style={styles.label}
-                    color="mutedForeground"
-                    transform="uppercase"
-                    noMargin
-                  >
-                    Essential Question
-                  </Text>
-                  <Text noMargin variant="xs">
-                    {data.essentialQuestion}
-                  </Text>
-                </Section>
+          <View style={styles.infoRow}>
+            {info.map((item) => (
+              <View key={item.label} style={styles.colQuarter}>
+                {renderLabel(item.label)}
+                <Text variant="xs" weight="medium" noMargin>
+                  {item.value}
+                </Text>
               </View>
-            ) : null}
-          </Section>
+            ))}
+          </View>
 
-          <Section spacing="none" style={styles.section}>
-            <Text
-              style={styles.label}
-              color="mutedForeground"
-              transform="uppercase"
-              noMargin
+          {data.essentialQuestion ? (
+            <Section
+              variant="highlight"
+              accentColor={data.accentColor}
+              spacing="none"
+              padding="sm"
+              style={styles.block}
             >
-              Objectives
-            </Text>
-            <PdfList
-              variant="bullet"
-              gap="xs"
-              items={data.objectives.map((o) => ({ text: `SWBAT ${o}` }))}
-            />
-          </Section>
-
-          {data.standards ? (
-            <Section spacing="none" style={styles.section}>
-              <Text
-                style={styles.label}
-                color="mutedForeground"
-                transform="uppercase"
-                noMargin
-              >
-                Standards
+              {renderLabel("Essential Question")}
+              <Text variant="sm" weight="medium" noMargin>
+                {data.essentialQuestion}
               </Text>
-              <PdfList
-                variant="bullet"
-                gap="xs"
-                items={data.standards.map((s) => ({ text: s }))}
-              />
             </Section>
           ) : null}
 
-          <Section spacing="none" style={styles.section}>
-            <Text
-              style={styles.label}
-              color="mutedForeground"
-              transform="uppercase"
-              noMargin
-            >
-              Materials
-            </Text>
-            <PdfList
-              variant="bullet"
-              gap="xs"
-              items={data.materials.map((m) => ({ text: m }))}
-            />
-          </Section>
+          <View style={{ ...styles.row, ...styles.block }}>
+            <View style={styles.colHalf}>
+              {renderLabel("Objectives")}
+              <Text
+                variant="xs"
+                color="mutedForeground"
+                style={styles.intro}
+                noMargin
+              >
+                Students will be able to (SWBAT):
+              </Text>
+              {renderList(data.objectives, true)}
+            </View>
+            {data.standards?.length ? (
+              <View style={styles.colQuarter}>
+                {renderLabel("Standards")}
+                {renderList(data.standards)}
+              </View>
+            ) : null}
+            <View style={styles.colQuarter}>
+              {renderLabel("Materials")}
+              {renderList(data.materials)}
+            </View>
+          </View>
+
+          <View>
+            {renderLabel("Lesson Sequence")}
+            <Table variant="grid" zebraStripe>
+              <TableHeader>
+                <TableRow header>
+                  <TableCell width={COLUMN_WIDTHS.time}>Time</TableCell>
+                  <TableCell width={COLUMN_WIDTHS.activity}>Activity</TableCell>
+                  <TableCell>Description</TableCell>
+                  <TableCell width={COLUMN_WIDTHS.notes}>Notes</TableCell>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {data.sequence.map((item) => (
+                  <TableRow key={`${item.time}-${item.activity}`}>
+                    <TableCell width={COLUMN_WIDTHS.time}>
+                      {item.time}
+                    </TableCell>
+                    <TableCell width={COLUMN_WIDTHS.activity}>
+                      {item.activity}
+                    </TableCell>
+                    <TableCell>{item.description}</TableCell>
+                    <TableCell width={COLUMN_WIDTHS.notes}>
+                      {item.notes ?? "—"}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </View>
         </View>
       </Page>
 
-      <Page
-        margin={{
-          bottom: theme.spacing.page.marginBottom,
-          left: theme.spacing.page.marginLeft,
-          right: theme.spacing.page.marginRight,
-          top: theme.spacing.page.marginTop,
-        }}
-        size="A4"
-      >
+      <Page margin={pageMargin} size="A4">
         <PageFooter
-          leftText={`${data.teacherName}`}
+          leftText={footerText}
           rightText="Page 2 of 2"
           sticky
           pagePadding={25}
         />
         <View style={styles.page as never}>
-          <Section spacing="none" style={styles.section}>
-            <Text
-              style={styles.label}
-              color="mutedForeground"
-              transform="uppercase"
-              noMargin
-            >
-              Lesson Sequence
-            </Text>
-            <Table variant="grid" zebraStripe>
-              <TableHeader>
-                <TableRow header>
-                  <TableCell>Time</TableCell>
-                  <TableCell>Activity</TableCell>
-                  <TableCell>Description</TableCell>
-                  <TableCell>Notes</TableCell>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {data.sequence.map((item, index) => (
-                  // biome-ignore lint/suspicious/noArrayIndexKey: sequence items have no stable id
-                  <TableRow key={index}>
-                    <TableCell>{item.time}</TableCell>
-                    <TableCell>{item.activity}</TableCell>
-                    <TableCell>{item.description}</TableCell>
-                    <TableCell>{item.notes ?? ""}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </Section>
-
-          {data.differentiation ? (
-            <Section spacing="none" style={styles.section}>
-              <Text
-                style={styles.label}
-                color="mutedForeground"
-                transform="uppercase"
-                noMargin
-              >
-                Differentiation
-              </Text>
-              <PdfList
-                variant="bullet"
-                gap="xs"
-                items={data.differentiation.map((d) => ({ text: d }))}
-              />
-            </Section>
+          {data.differentiation?.length ? (
+            <View style={styles.block}>
+              {renderLabel("Differentiation")}
+              {renderList(data.differentiation)}
+            </View>
           ) : null}
 
-          <Section
-            noWrap
-            spacing="none"
-            style={{ ...styles.row, ...styles.section }}
-          >
-            <View style={styles.col}>
-              <Text
-                style={styles.label}
-                color="mutedForeground"
-                transform="uppercase"
-                noMargin
-              >
-                Formative Assessment
-              </Text>
-              {data.assessment.formative ? (
-                <PdfList
-                  variant="bullet"
-                  gap="xs"
-                  items={data.assessment.formative.map((a) => ({ text: a }))}
-                />
-              ) : (
-                <Text noMargin variant="xs" color="mutedForeground">
-                  None
-                </Text>
-              )}
+          <View style={{ ...styles.row, ...styles.block }}>
+            <View style={styles.colHalf}>
+              {renderLabel("Formative Assessment")}
+              {renderList(data.assessment.formative)}
             </View>
-            <View style={styles.col}>
-              <Text
-                style={styles.label}
-                color="mutedForeground"
-                transform="uppercase"
-                noMargin
-              >
-                Summative Assessment
-              </Text>
-              {data.assessment.summative ? (
-                <PdfList
-                  variant="bullet"
-                  gap="xs"
-                  items={data.assessment.summative.map((a) => ({ text: a }))}
-                />
-              ) : (
-                <Text noMargin variant="xs" color="mutedForeground">
-                  None
-                </Text>
-              )}
+            <View style={styles.colHalf}>
+              {renderLabel("Summative Assessment")}
+              {renderList(data.assessment.summative)}
             </View>
-          </Section>
+          </View>
 
           {data.homework ? (
-            <Section spacing="none" style={styles.section}>
-              <Text
-                style={styles.label}
-                color="mutedForeground"
-                transform="uppercase"
-                noMargin
-              >
-                Homework
-              </Text>
-              <Text noMargin variant="xs">
+            <View style={styles.block}>
+              {renderLabel("Homework")}
+              <Text variant="xs" noMargin>
                 {data.homework}
               </Text>
-            </Section>
+            </View>
           ) : null}
 
-          {data.reflection ? (
-            <Section spacing="none" style={styles.section}>
-              <Text
-                style={styles.label}
-                color="mutedForeground"
-                transform="uppercase"
-                noMargin
-              >
-                Reflection Notes
-              </Text>
-              <Text noMargin variant="xs">
+          <View>
+            {renderLabel("Teacher Reflection")}
+            {data.reflection ? (
+              <Text variant="xs" noMargin>
                 {data.reflection}
               </Text>
-            </Section>
-          ) : null}
+            ) : null}
+            {REFLECTION_LINE_KEYS.map((key) => (
+              <View key={key} style={styles.reflectionLine} />
+            ))}
+          </View>
         </View>
       </Page>
     </Document>
@@ -396,12 +351,13 @@ const LessonPlanContent = ({ data }: { data: LessonPlanData }) => {
 
 export const LessonPlanDocument = ({
   theme,
-  data = sampleData,
+  data,
+  ...props
 }: {
   theme?: PdfcnTheme;
-  data?: LessonPlanData;
-}) => (
+  data?: LessonPlanProps;
+} & Partial<LessonPlanProps>) => (
   <PdfcnThemeProvider theme={theme}>
-    <LessonPlanContent data={data} />
+    <LessonPlanContent data={{ ...sampleData, ...data, ...props }} />
   </PdfcnThemeProvider>
 );
