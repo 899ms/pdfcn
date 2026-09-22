@@ -1,0 +1,160 @@
+---
+title: "Work Order"
+description: "Printable service/maintenance work order with job details, parts used, labor tracking, and customer sign-off."
+---
+
+<ComponentPreview base="takumi" name="work-order" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @pdfcn/takumi/work-order
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install takumi-pdf @takumi-rs/helpers
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/takumi/blocks/work-order/work-order.tsx"
+  base="takumi"
+  title="components/pdf/blocks/work-order/work-order.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/takumi/components/theme-provider.tsx"
+  base="takumi"
+  title="components/pdf/theme-provider.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/takumi/lib/resolve-color.ts"
+  base="takumi"
+  title="lib/resolve-color.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/takumi/lib/pdf-primitives.tsx"
+  base="takumi"
+  title="lib/pdf-primitives.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/takumi/lib/pdf-svg.tsx"
+  base="takumi"
+  title="lib/pdf-svg.tsx"
+/>
+
+<ComponentSource
+  src="registry/themes/professional.ts"
+  base="takumi"
+  title="lib/pdf-themes/professional.ts"
+/>
+
+<ComponentSource
+  src="registry/themes/primitives.ts"
+  base="takumi"
+  title="lib/pdf-themes/primitives.ts"
+/>
+
+<ComponentSource
+  src="registry/types/pdf-themes.ts"
+  base="takumi"
+  title="types/pdf-themes.ts"
+/>
+
+<ComponentSource
+  src="registry/types/pdf-components.ts"
+  base="takumi"
+  title="types/pdf-components.ts"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { WorkOrderDocument } from "@/components/pdf/work-order";
+```
+
+```tsx
+<WorkOrderDocument
+  data={{
+    companyName: "FixIt Pro Services",
+    workOrderNumber: "WO-2026-0452",
+    date: "September 10, 2026",
+    priority: "High",
+    customer: {
+      name: "Riverside Apartments",
+      address: "789 Elm St, Austin, TX 78701",
+      phone: "(512) 555-0199",
+    },
+    technician: "Mike Torres",
+    jobType: "Repair",
+    equipment: {
+      description: "Commercial Dishwasher",
+      makeModel: "Bosch SHP878ZD5N",
+      serialNumber: "BSH-2024-88712",
+    },
+    parts: [
+      {
+        partNumber: "PUMP-001",
+        description: "Drain Pump Assembly",
+        qty: 1,
+        unitPrice: 89.99,
+      },
+      {
+        partNumber: "HOSE-012",
+        description: "Drain Hose Kit",
+        qty: 1,
+        unitPrice: 24.5,
+      },
+    ],
+    labor: [
+      {
+        description: "Diagnosis and repair",
+        technician: "Mike Torres",
+        hours: 2.5,
+        rate: 95.0,
+      },
+    ],
+    taxRate: 0.0825,
+    technicianNotes:
+      "Found clogged drain pump. Replaced pump and hose. Unit tested OK.",
+    warrantyInfo: "90-day warranty on parts and labor.",
+    accentColor: "#ea580c",
+  }}
+/>
+```
+
+## Props
+
+| Prop    | Type            | Description                   |
+| ------- | --------------- | ----------------------------- |
+| `data`  | `WorkOrderData` | Work order content and totals |
+| `theme` | `PdfcnTheme`    | Optional theme override       |
