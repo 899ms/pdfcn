@@ -15,6 +15,7 @@ const BLOCK_NAMES = new Set([
   "medical-intake-form",
   "meeting-minutes",
   "packing-slip",
+  "press-release",
   "report-financial",
   "report-marketing",
   "report-operations",

@@ -26,6 +26,7 @@ import forme_page_footer from "@/examples/forme/page-footer";
 import forme_page_header from "@/examples/forme/page-header";
 import forme_page_number from "@/examples/forme/page-number";
 import forme_pdf_image from "@/examples/forme/pdf-image";
+import forme_press_release from "@/examples/forme/press-release";
 import forme_qrcode from "@/examples/forme/qrcode";
 import forme_report_financial from "@/examples/forme/report-financial";
 import forme_report_marketing from "@/examples/forme/report-marketing";
@@ -65,6 +66,7 @@ import takumi_page_footer from "@/examples/takumi/page-footer";
 import takumi_page_header from "@/examples/takumi/page-header";
 import takumi_page_number from "@/examples/takumi/page-number";
 import takumi_pdf_image from "@/examples/takumi/pdf-image";
+import takumi_press_release from "@/examples/takumi/press-release";
 import takumi_qrcode from "@/examples/takumi/qrcode";
 import takumi_report_financial from "@/examples/takumi/report-financial";
 import takumi_report_marketing from "@/examples/takumi/report-marketing";
@@ -109,6 +111,7 @@ export const demos: Record<BaseName, DemoMap> = {
     "page-header": forme_page_header,
     "page-number": forme_page_number,
     "pdf-image": forme_pdf_image,
+    "press-release": forme_press_release,
     qrcode: forme_qrcode,
     "report-financial": forme_report_financial,
     "report-marketing": forme_report_marketing,
@@ -150,6 +153,7 @@ export const demos: Record<BaseName, DemoMap> = {
     "page-header": takumi_page_header,
     "page-number": takumi_page_number,
     "pdf-image": takumi_pdf_image,
+    "press-release": takumi_press_release,
     qrcode: takumi_qrcode,
     "report-financial": takumi_report_financial,
     "report-marketing": takumi_report_marketing,

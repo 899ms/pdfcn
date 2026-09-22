@@ -1,0 +1,131 @@
+---
+title: "Press Release"
+description: "Printable press release document with headline, body, quotes, and media contact info."
+---
+
+<ComponentPreview base="takumi" name="press-release" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @pdfcn/takumi/press-release
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install takumi-pdf @takumi-rs/helpers
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/takumi/blocks/press-release/press-release.tsx"
+  base="takumi"
+  title="components/pdf/blocks/press-release/press-release.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/takumi/components/theme-provider.tsx"
+  base="takumi"
+  title="components/pdf/theme-provider.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/takumi/lib/resolve-color.ts"
+  base="takumi"
+  title="lib/resolve-color.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/takumi/lib/pdf-primitives.tsx"
+  base="takumi"
+  title="lib/pdf-primitives.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/takumi/lib/pdf-svg.tsx"
+  base="takumi"
+  title="lib/pdf-svg.tsx"
+/>
+
+<ComponentSource
+  src="registry/themes/professional.ts"
+  base="takumi"
+  title="lib/pdf-themes/professional.ts"
+/>
+
+<ComponentSource
+  src="registry/themes/primitives.ts"
+  base="takumi"
+  title="lib/pdf-themes/primitives.ts"
+/>
+
+<ComponentSource
+  src="registry/types/pdf-themes.ts"
+  base="takumi"
+  title="types/pdf-themes.ts"
+/>
+
+<ComponentSource
+  src="registry/types/pdf-components.ts"
+  base="takumi"
+  title="types/pdf-components.ts"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { PressReleaseDocument } from "@/components/pdf/press-release";
+```
+
+```tsx
+<PressReleaseDocument
+  companyName="Acme Corp"
+  date="September 10, 2026"
+  headline="Acme Corp Launches Revolutionary PDF Toolkit for Developers"
+  subheadline="New open-source library makes generating professional PDFs in React effortless"
+  dateline={{ city: "San Francisco", state: "CA" }}
+  body={[
+    "Acme Corp today announced the launch of pdfcn, an open-source React component library for generating professional PDF documents.",
+    "pdfcn is designed to work seamlessly with shadcn/ui and follows the same registry-based distribution model.",
+  ]}
+  quotes={[
+    {
+      text: "We built pdfcn because generating PDFs in React was unnecessarily painful.",
+      author: "Jane Doe",
+      title: "CTO, Acme Corp",
+    },
+  ]}
+  boilerplate="Acme Corp is a leading provider of developer tools and open-source software."
+  mediaContact={{
+    name: "Press Team",
+    email: "press@acme.com",
+    phone: "(555) 123-4567",
+  }}
+  accentColor="#1e40af"
+/>
+```
