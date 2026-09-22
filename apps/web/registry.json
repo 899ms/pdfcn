@@ -642,6 +642,31 @@
     },
     {
       "dependencies": ["takumi-pdf", "@takumi-rs/helpers"],
+      "description": "Gift Certificate PDF block (takumi)",
+      "files": [
+        {
+          "path": "registry/bases/takumi/blocks/gift-certificate/gift-certificate.tsx",
+          "type": "registry:block",
+          "target": "components/pdf/blocks/gift-certificate/gift-certificate.tsx"
+        },
+        {
+          "path": "registry/bases/takumi/blocks/gift-certificate/gift-certificate.types.ts",
+          "type": "registry:block",
+          "target": "components/pdf/blocks/gift-certificate/gift-certificate.types.ts"
+        }
+      ],
+      "name": "takumi/gift-certificate",
+      "registryDependencies": [
+        "@pdfcn/takumi/utils",
+        "@pdfcn/takumi/page-footer",
+        "@pdfcn/takumi/section",
+        "@pdfcn/takumi/text"
+      ],
+      "title": "Gift Certificate",
+      "type": "registry:block"
+    },
+    {
+      "dependencies": ["takumi-pdf", "@takumi-rs/helpers"],
       "description": "Report Financial PDF block (takumi)",
       "files": [
         {
@@ -782,6 +807,37 @@
         "@pdfcn/takumi/text"
       ],
       "title": "Report Security",
+      "type": "registry:block"
+    },
+    {
+      "dependencies": ["takumi-pdf", "@takumi-rs/helpers"],
+      "description": "Medical Intake Form PDF block (takumi)",
+      "files": [
+        {
+          "path": "registry/bases/takumi/blocks/medical-intake-form/medical-intake-form.tsx",
+          "type": "registry:block",
+          "target": "components/pdf/blocks/medical-intake-form/medical-intake-form.tsx"
+        },
+        {
+          "path": "registry/bases/takumi/blocks/medical-intake-form/medical-intake-form.types.ts",
+          "type": "registry:block",
+          "target": "components/pdf/blocks/medical-intake-form/medical-intake-form.types.ts"
+        }
+      ],
+      "name": "takumi/medical-intake-form",
+      "registryDependencies": [
+        "@pdfcn/takumi/utils",
+        "@pdfcn/takumi/form",
+        "@pdfcn/takumi/list",
+        "@pdfcn/takumi/page-footer",
+        "@pdfcn/takumi/page-header",
+        "@pdfcn/takumi/pdf-image",
+        "@pdfcn/takumi/section",
+        "@pdfcn/takumi/signature",
+        "@pdfcn/takumi/table",
+        "@pdfcn/takumi/text"
+      ],
+      "title": "Medical Intake Form",
       "type": "registry:block"
     },
     {

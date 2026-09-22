@@ -7,6 +7,7 @@ import { KeyValue } from "@/registry/bases/forme/components/key-value/key-value"
 import { PdfList } from "@/registry/bases/forme/components/list/list";
 import { PageFooter } from "@/registry/bases/forme/components/page-footer/page-footer";
 import { PageHeader } from "@/registry/bases/forme/components/page-header/page-header";
+import { PageNumber } from "@/registry/bases/forme/components/page-number/page-number";
 import { Section } from "@/registry/bases/forme/components/section/section";
 import { Text } from "@/registry/bases/forme/components/text/text";
 import {
@@ -180,7 +181,7 @@ export const ReportLayout = ({
           variant="three-column"
           leftText="Confidential — Internal Use"
           centerText="Generated with pdfcn"
-          rightText="Page 1 of 1"
+          rightText={<PageNumber align="right" size="xs" />}
           sticky
           pagePadding={theme.spacing.page.marginLeft}
         />
@@ -256,7 +257,7 @@ export const ReportLayout = ({
           variant="three-column"
           leftText="Confidential — Internal Use"
           centerText="Generated with pdfcn"
-          rightText="Page 1 of 1"
+          rightText={<PageNumber align="right" size="xs" />}
           sticky
           pagePadding={theme.spacing.page.marginLeft}
         />
@@ -356,7 +357,7 @@ export const ReportLayout = ({
           variant="three-column"
           leftText="Confidential — Internal Use"
           centerText="Generated with pdfcn"
-          rightText="Page 1 of 1"
+          rightText={<PageNumber align="right" size="xs" />}
           sticky
           pagePadding={theme.spacing.page.marginLeft}
         />

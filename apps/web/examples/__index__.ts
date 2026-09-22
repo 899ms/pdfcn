@@ -42,6 +42,7 @@ import takumi_data_table from "@/examples/takumi/data-table";
 import takumi_divider from "@/examples/takumi/divider";
 import takumi_event_agenda from "@/examples/takumi/event-agenda";
 import takumi_form from "@/examples/takumi/form";
+import takumi_gift_certificate from "@/examples/takumi/gift-certificate";
 import takumi_graph from "@/examples/takumi/graph";
 import takumi_heading from "@/examples/takumi/heading";
 import takumi_invoice_classic from "@/examples/takumi/invoice-classic";
@@ -54,6 +55,7 @@ import takumi_keep_together from "@/examples/takumi/keep-together";
 import takumi_key_value from "@/examples/takumi/key-value";
 import takumi_link from "@/examples/takumi/link";
 import takumi_list from "@/examples/takumi/list";
+import takumi_medical_intake_form from "@/examples/takumi/medical-intake-form";
 import takumi_page_break from "@/examples/takumi/page-break";
 import takumi_page_footer from "@/examples/takumi/page-footer";
 import takumi_page_header from "@/examples/takumi/page-header";
@@ -120,6 +122,7 @@ export const demos: Record<BaseName, DemoMap> = {
     divider: takumi_divider,
     "event-agenda": takumi_event_agenda,
     form: takumi_form,
+    "gift-certificate": takumi_gift_certificate,
     graph: takumi_graph,
     heading: takumi_heading,
     "invoice-classic": takumi_invoice_classic,
@@ -132,6 +135,7 @@ export const demos: Record<BaseName, DemoMap> = {
     "key-value": takumi_key_value,
     link: takumi_link,
     list: takumi_list,
+    "medical-intake-form": takumi_medical_intake_form,
     "page-break": takumi_page_break,
     "page-footer": takumi_page_footer,
     "page-header": takumi_page_header,

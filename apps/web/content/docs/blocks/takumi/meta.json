@@ -1,6 +1,7 @@
 {
   "pages": [
     "index",
+    "gift-certificate",
     "event-agenda",
     "invoice-classic",
     "invoice-consultant",
@@ -8,6 +9,7 @@
     "invoice-creative",
     "invoice-minimal",
     "invoice-modern",
+    "medical-intake-form",
     "report-financial",
     "report-marketing",
     "report-operations",
