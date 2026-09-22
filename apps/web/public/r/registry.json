@@ -1007,6 +1007,33 @@
       "type": "registry:block"
     },
     {
+      "dependencies": ["takumi-pdf", "@takumi-rs/helpers"],
+      "description": "Lesson Plan PDF block (takumi)",
+      "files": [
+        {
+          "path": "registry/bases/takumi/blocks/lesson-plan/lesson-plan.tsx",
+          "type": "registry:block",
+          "target": "components/pdf/blocks/lesson-plan/lesson-plan.tsx"
+        },
+        {
+          "path": "registry/bases/takumi/blocks/lesson-plan/lesson-plan.types.ts",
+          "type": "registry:block",
+          "target": "components/pdf/blocks/lesson-plan/lesson-plan.types.ts"
+        }
+      ],
+      "name": "takumi/lesson-plan",
+      "registryDependencies": [
+        "@pdfcn/takumi/utils",
+        "@pdfcn/takumi/page-footer",
+        "@pdfcn/takumi/page-header",
+        "@pdfcn/takumi/section",
+        "@pdfcn/takumi/table",
+        "@pdfcn/takumi/text"
+      ],
+      "title": "Lesson Plan",
+      "type": "registry:block"
+    },
+    {
       "description": "professional theme tokens",
       "files": [
         {
@@ -2263,6 +2290,33 @@
         "@pdfcn/forme/text"
       ],
       "title": "Work Order",
+      "type": "registry:block"
+    },
+    {
+      "dependencies": ["@formepdf/react", "@formepdf/core"],
+      "description": "Lesson Plan PDF block (forme)",
+      "files": [
+        {
+          "path": "registry/bases/forme/blocks/lesson-plan/lesson-plan.tsx",
+          "type": "registry:block",
+          "target": "components/pdf/blocks/lesson-plan/lesson-plan.tsx"
+        },
+        {
+          "path": "registry/bases/forme/blocks/lesson-plan/lesson-plan.types.ts",
+          "type": "registry:block",
+          "target": "components/pdf/blocks/lesson-plan/lesson-plan.types.ts"
+        }
+      ],
+      "name": "forme/lesson-plan",
+      "registryDependencies": [
+        "@pdfcn/forme/utils",
+        "@pdfcn/forme/page-footer",
+        "@pdfcn/forme/page-header",
+        "@pdfcn/forme/section",
+        "@pdfcn/forme/table",
+        "@pdfcn/forme/text"
+      ],
+      "title": "Lesson Plan",
       "type": "registry:block"
     }
   ],
