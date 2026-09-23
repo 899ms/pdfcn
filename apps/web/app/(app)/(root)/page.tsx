@@ -1,3 +1,4 @@
+import { AgentPrompt } from "@/components/agent-prompt";
 import { CommandBox } from "@/components/command-box";
 import { HomeCtas } from "@/components/home-ctas";
 import { HomePdfShowcase } from "@/components/home-pdf-showcase";
@@ -31,6 +32,8 @@ const IndexPage = () => (
           <CommandBox className="mt-4 w-full max-w-xl" />
 
           <HomeCtas className="mt-4" />
+
+          <AgentPrompt />
         </div>
       </section>
     </PageTransition>
