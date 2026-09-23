@@ -50,7 +50,9 @@ export const AgentPrompt = ({ className }: { className?: string }) => {
           </motion.span>
         )}
       </AnimatePresence>
-      {isCopied ? "Copied — paste into your agent" : "Copy prompt for your agent"}
+      {isCopied
+        ? "Copied — paste into your agent"
+        : "Copy prompt for your agent"}
     </Button>
   );
 };
