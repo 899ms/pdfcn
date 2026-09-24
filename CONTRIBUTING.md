@@ -31,6 +31,8 @@ pnpm build
 
 This builds the shadcn registry first, then the Next.js app.
 
+When changing a registry item, run `pnpm registry:build` (`apps/web/scripts/build-registry.mts`). The source manifest is `apps/web/registry.json`; the build publishes `apps/web/public/r/*.json`, rewrites source-only `@/registry/` imports to the installed file targets, and checks that every item has a complete isolated dependency closure (including package dependencies). Declare imports from other items in `registryDependencies`; do not edit the generated JSON by hand.
+
 ## Testing
 
 ```bash

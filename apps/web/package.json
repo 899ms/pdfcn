@@ -8,7 +8,7 @@
     "build": "pnpm registry:build && next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "registry:build": "shadcn build",
+    "registry:build": "tsx scripts/build-registry.mts",
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
