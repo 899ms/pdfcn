@@ -7,6 +7,9 @@
     "takumi-pdf",
     "@takumi-rs/helpers"
   ],
+  "registryDependencies": [
+    "@pdfcn/theme-professional"
+  ],
   "files": [
     {
       "path": "registry/bases/takumi/lib/resolve-color.ts",

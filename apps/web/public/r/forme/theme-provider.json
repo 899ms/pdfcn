@@ -7,6 +7,9 @@
     "@formepdf/react",
     "@formepdf/core"
   ],
+  "registryDependencies": [
+    "@pdfcn/theme-professional"
+  ],
   "files": [
     {
       "path": "registry/bases/forme/components/theme-provider.tsx",

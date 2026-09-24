@@ -4,6 +4,21 @@
   "items": [
     {
       "dependencies": ["takumi-pdf", "@takumi-rs/helpers"],
+      "description": "Theme provider for the takumi base",
+      "files": [
+        {
+          "path": "registry/bases/takumi/components/theme-provider.tsx",
+          "type": "registry:lib",
+          "target": "components/pdf/theme-provider.tsx"
+        }
+      ],
+      "name": "takumi/theme-provider",
+      "registryDependencies": ["@pdfcn/theme-professional"],
+      "title": "Theme Provider",
+      "type": "registry:lib"
+    },
+    {
+      "dependencies": ["takumi-pdf", "@takumi-rs/helpers"],
       "description": "Theme context and helpers for the takumi base",
       "files": [
         {
@@ -28,6 +43,7 @@
         }
       ],
       "name": "takumi/utils",
+      "registryDependencies": ["@pdfcn/theme-professional"],
       "title": "Takumi Utils",
       "type": "registry:lib"
     },
@@ -1287,6 +1303,21 @@
     },
     {
       "dependencies": ["@formepdf/react", "@formepdf/core"],
+      "description": "Theme provider for the forme base",
+      "files": [
+        {
+          "path": "registry/bases/forme/components/theme-provider.tsx",
+          "type": "registry:lib",
+          "target": "components/pdf/theme-provider.tsx"
+        }
+      ],
+      "name": "forme/theme-provider",
+      "registryDependencies": ["@pdfcn/theme-professional"],
+      "title": "Theme Provider",
+      "type": "registry:lib"
+    },
+    {
+      "dependencies": ["@formepdf/react", "@formepdf/core"],
       "description": "Theme context and helpers for the forme base",
       "files": [
         {
@@ -1316,6 +1347,7 @@
         }
       ],
       "name": "forme/utils",
+      "registryDependencies": ["@pdfcn/theme-professional"],
       "title": "Forme Utils",
       "type": "registry:lib"
     },
